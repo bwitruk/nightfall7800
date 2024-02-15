@@ -69,6 +69,14 @@ sprite_sheets:
         left: 16
         width: 16
         holeydma: false
-        palette_number: 1
+        palette_number: 4
         mode: 320C
         palette: set2
+      - name: nightfall_007
+        top: 16
+        left: 32
+        width: 16
+        holeydma: false
+        palette_number: 0
+        mode: 320C
+        palette: set1

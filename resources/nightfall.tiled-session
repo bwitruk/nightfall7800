@@ -3,8 +3,9 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "nightfall.tmx",
     "expandedProjectPaths": [
+        "."
     ],
     "fileStates": {
         "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/320BD_sparse.tmx": {
@@ -23,8 +24,12 @@
             "selectedLayer": 0,
             "viewCenter": {
                 "x": 161.88531029065203,
-                "y": 95.68997119664834
+                "y": 95.35480492275465
             }
+        },
+        "nightfall.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "nightfall_002.tsx": {
             "scaleInDock": 1,
@@ -43,12 +48,15 @@
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
+        "nightfall.tmx",
+        "nightfall.tsx"
     ],
     "project": "nightfall.tiled-project",
     "property.type": "string",
     "recentFiles": [
-        "nightfall_002.tsx",
+        "nightfall.tsx",
         "nightfall.tmx",
+        "nightfall_002.tsx",
         "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/320BD_sparse.tmx",
         "trunk-001.tsx"
     ],
