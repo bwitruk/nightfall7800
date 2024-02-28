@@ -1,0 +1,152 @@
+palettes:
+  - name: set1
+    colors: 
+    - [180, 250, 222] # Light Turquoise
+    - [164, 48, 24] # Red
+    - [57, 178, 172] # Dark Turquoise
+    - [29, 142, 187] # Blue
+  - name: set2
+    colors: 
+    - [255, 255, 255] # White
+    - [0, 0, 0] # Black
+    - [255, 143, 0] # Orange
+    - [241, 194, 125] # Rose
+  - name: all
+    colors: 
+    - [180, 250, 222] # Light Turquoise
+    - [164, 48, 24] # Red
+    - [57, 178, 172] # Dark Turquoise
+    - [29, 142, 187] # Blue
+    - [255, 255, 255] # White
+    - [0, 0, 0] # Black
+    - [255, 143, 0] # Orange
+    - [241, 194, 125] # Rose
+sprite_sheets:
+- image: boy_character.png
+  sprites:
+  - name: boy_idle_01
+    top: 0
+    left: 0
+    width: 32
+    height: 64
+    holeydma: true
+    palette: set2
+    palette_number: 4
+    mode: 320C
+  - name: boy_idle_02
+    top: 0
+    left: 32
+    width: 32
+    height: 64
+    holeydma: true
+    palette: set2
+    palette_number: 4
+    mode: 320C
+  - name: boy_idle_03
+    top: 0
+    left: 64
+    width: 32
+    height: 64
+    holeydma: true
+    palette: set2
+    palette_number: 4
+    mode: 320C 
+  - name: boy_idle_04
+    top: 0
+    left: 96
+    width: 32
+    height: 64
+    holeydma: true
+    palette: set2
+    palette_number: 4
+    mode: 320C
+  - name: boy_walk_right_01
+    top: 64
+    left: 128
+    width: 32
+    height: 64
+    holeydma: true
+    palette: set2
+    palette_number: 4
+    mode: 320C
+  - name: boy_walk_right_02
+    top: 64
+    left: 96
+    width: 32
+    height: 64
+    holeydma: true
+    palette: set2
+    palette_number: 4
+    mode: 320C
+  - name: boy_walk_right_03
+    top: 64
+    left: 64
+    width: 32
+    height: 64
+    holeydma: true
+    palette: set2
+    palette_number: 4
+    mode: 320C
+  - name: boy_walk_right_04
+    top: 64
+    left: 32
+    width: 32
+    height: 64
+    holeydma: true
+    palette: set2
+    palette_number: 4
+    mode: 320C
+  - name: boy_walk_right_05
+    top: 64
+    left: 0
+    width: 32
+    height: 64
+    holeydma: true
+    palette: set2
+    palette_number: 4
+    mode: 320C
+  - name: boy_walk_left_01
+    top: 0
+    left: 160
+    width: 32
+    height: 64
+    holeydma: true
+    palette: set2
+    palette_number: 4
+    mode: 320C
+  - name: boy_walk_left_02
+    top: 0
+    left: 192
+    width: 32
+    height: 64
+    holeydma: true
+    palette: set2
+    palette_number: 4
+    mode: 320C
+  - name: boy_walk_left_03
+    top: 0
+    left: 224
+    width: 32
+    height: 64
+    holeydma: true
+    palette: set2
+    palette_number: 4
+    mode: 320C
+  - name: boy_walk_left_04
+    top: 0
+    left: 256
+    width: 32
+    height: 64
+    holeydma: true
+    palette: set2
+    palette_number: 4
+    mode: 320C
+  - name: boy_walk_left_05
+    top: 0
+    left: 288
+    width: 32
+    height: 64
+    holeydma: true
+    palette: set2
+    palette_number: 4
+    mode: 320C

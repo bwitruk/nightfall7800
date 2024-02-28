@@ -19,46 +19,152 @@
         "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/320BD_sparse.tsx": {
             "scaleInDock": 1
         },
-        "nightfall.tmx": {
-            "scale": 2.98359375,
+        "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/RType_level1.tmx": {
+            "scale": 0.21044921875,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 161.88531029065203,
-                "y": 95.35480492275465
+                "x": 1715.3781902552205,
+                "y": 106.91415313225048
             }
         },
+        "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/RType_level1_mirror.tmx": {
+            "scale": 0.971337890625,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 512.694917810285,
+                "y": 104.49504850952599
+            }
+        },
+        "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/RType_tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/RType_tiles_mirror.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/bombjack_arrangement_A.tmx": {
+            "scale": 3.6558035714285713,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 112.15044571986815,
+                "y": 112.01367688362438
+            }
+        },
+        "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/bombjack_parthenon.tmx": {
+            "scale": 3.65,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 112.05479452054792,
+                "y": 112.19178082191779
+            }
+        },
+        "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/bombjack_tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/highres_sparse.tmx": {
+            "scale": 1.5994140625,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 256.34387593112706,
+                "y": 256.0312614482843
+            }
+        },
+        "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/highres_tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "nightfall-test.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 286.66666666666663,
+                "y": 199.66666666666669
+            }
+        },
+        "nightfall..tmj": {
+            "scale": 1.0360937499999998,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 480.6514854471423,
+                "y": 336.3595234504601
+            }
+        },
+        "nightfall.tmj": {
+            "scale": 1.0360937499999998,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 507.6760669582266,
+                "y": 336.3595234504601
+            }
+        },
+        "nightfall.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 449.33333333333337,
+                "y": 488.3333333333333
+            }
+        },
+        "nightfall.tsj": {
+            "scaleInDock": 1
+        },
         "nightfall.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 3
+        },
+        "nightfall2.tsj": {
             "scaleInDock": 1,
-            "scaleInEditor": 1
+            "scaleInEditor": 3
+        },
+        "nightfall2.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 3
         },
         "nightfall_002.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 5.5
+        },
+        "nightfall_test.tmx": {
+            "scale": 1.0360937499999998,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 480.6514854471423,
+                "y": 336.3595234504601
+            }
         },
         "trunk-001.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 5.5
         }
     },
+    "last.exportedFilePath": "D:/bwitruk/GameDev/Atari7800/Projects/Nightfall/resources",
     "last.externalTilesetPath": "D:/bwitruk/GameDev/Atari7800/Projects/Nightfall/resources",
     "last.imagePath": "D:/bwitruk/GameDev/Atari7800/Projects/Nightfall/resources",
+    "lastUsedTilesetExportFilter": "JSON tileset files (*.tsj *.json)",
     "map.height": 12,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
         "nightfall.tmx",
-        "nightfall.tsx"
+        "nightfall.tsx",
+        "nightfall2.tsx"
     ],
     "project": "nightfall.tiled-project",
     "property.type": "string",
     "recentFiles": [
-        "nightfall.tsx",
+        "nightfall_test.tmx",
+        "nightfall-test.tmx",
+        "nightfall2.tsj",
+        "nightfall.tmj",
+        "nightfall..tmj",
         "nightfall.tmx",
-        "nightfall_002.tsx",
-        "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/320BD_sparse.tmx",
-        "trunk-001.tsx"
+        "nightfall.tsx",
+        "nightfall2.tsx",
+        "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/bombjack_parthenon.tmx",
+        "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/bombjack_arrangement_A.tmx",
+        "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/highres_sparse.tmx",
+        "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/RType_level1_mirror.tmx"
     ],
     "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
     "tileset.lastUsedFormat": "tsx",
