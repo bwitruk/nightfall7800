@@ -80,7 +80,7 @@ sprite_sheets:
       mode: 320C
     - name: boy_walk_right_03
       top: 64
-      left: 64
+      left: 64    
       width: 32
       height: 64
       holeydma: true

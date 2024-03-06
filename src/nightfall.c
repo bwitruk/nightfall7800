@@ -170,6 +170,8 @@ void character_update() {
 		character_gfx = character_animations[frame_no];
 	}
 
+	//character_gfx = character_animations[6];
+
 	//x, y, gfx, width, palette, height, mode
 	multisprite_display_big_sprite(character_x, character_y, character_gfx, 8, 4, 4, 1);
 
@@ -192,15 +194,15 @@ void character_init() {
 }
 
 void main() {
-    // x = 160; y = 448;
-    x = 320; y = 0;
+    x = 160; y = 448;
+    // x = 320; y = 0;
 	
 	clock_ticker = 0;
 
 	character_init();
 
     multisprite_init();
-    multisprite_set_charbase(sprite_kenney_mono_9);
+    multisprite_set_charbase(sprite_kenney_mono_14);
     sparse_tiling_init(nightfall_tiles_data_ptrs);
     joystick_init();
     
