@@ -22,133 +22,141 @@ palettes:
     - [255, 143, 0] # Orange
     - [241, 194, 125] # Rose
 sprite_sheets:
-- image: monochrome_tilemap_transparent_packed.png
-  sprites:
-  - name: sprite_kenney_mono_17
-    top: 0
-    left: 272
-    width: 16
-    holeydma: false
-    palette: all
-    palette_number: 4
-    mode: 320A
-  - name: sprite_kenney_mono_19
-    top: 0
-    left: 304
-    width: 16
-    holeydma: false
-    palette: all
-    palette_number: 4
-    mode: 320A
-  - name: sprite_kenney_mono_38
-    top: 16
-    left: 288
-    width: 16
-    holeydma: false
-    palette: all
-    palette_number: 4
-    mode: 320A
-  - name: sprite_kenney_mono_39
-    top: 16
-    left: 304
-    width: 16
-    holeydma: false
-    palette: all
-    palette_number: 4
-    mode: 320A
-  - name: sprite_kenney_mono_64
-    top: 48
-    left: 64
-    width: 16
-    holeydma: false
-    palette: all
-    palette_number: 4
-    mode: 320A
-  - name: sprite_kenney_mono_65
-    top: 48
-    left: 80
-    width: 16
-    holeydma: false
-    palette: all
-    palette_number: 4
-    mode: 320A
-  - name: sprite_kenney_mono_66
-    top: 48
-    left: 96
-    width: 16
-    holeydma: false
-    palette: all
-    palette_number: 4
-    mode: 320A
-  - name: sprite_kenney_mono_81
-    top: 64
-    left: 16
-    width: 16
-    holeydma: false
-    palette: all
-    palette_number: 4
-    mode: 320A
-  - name: sprite_kenney_mono_84
-    top: 64
-    left: 64
-    width: 16
-    holeydma: false
-    palette: all
-    palette_number: 4
-    mode: 320A
-  - name: sprite_kenney_mono_85
-    top: 64
-    left: 80
-    width: 16
-    holeydma: false
-    palette: all
-    palette_number: 4
-    mode: 320A
-  - name: sprite_kenney_mono_88
-    top: 64
-    left: 128
-    width: 16
-    holeydma: false
-    palette: all
-    palette_number: 4
-    mode: 320A
-  - name: sprite_kenney_mono_121
-    top: 96
-    left: 16
-    width: 16
-    holeydma: false
-    palette: all
-    palette_number: 4
-    mode: 320A
-  - name: sprite_kenney_mono_188
-    top: 144
-    left: 128
-    width: 16
-    holeydma: false
-    palette: all
-    palette_number: 4
-    mode: 320A
-  - name: sprite_kenney_mono_207
-    top: 160
-    left: 112
-    width: 16
-    holeydma: false
-    palette: all
-    palette_number: 4
-    mode: 320A
-  - name: sprite_kenney_mono_208
-    top: 160
-    left: 128
-    width: 16
-    holeydma: false
-    palette: all
-    palette_number: 4
-    mode: 320A
-  - name: sprite_kenney_mono_209
-    top: 160
-    left: 144
-    width: 16
-    holeydma: false
-    palette: all
-    palette_number: 4
-    mode: 320A
+  - image: monochrome_tilemap_transparent_packed.png
+    sprites:
+    - name: sprite_kenney_mono_9
+      top: 0
+      left: 144
+      width: 16
+      holeydma: false
+      palette: all
+      palette_number: 4
+      mode: 320A
+    - name: sprite_kenney_mono_14
+      top: 0
+      left: 224
+      width: 16
+      holeydma: false
+      palette: all
+      palette_number: 4
+      mode: 320A
+    - name: sprite_kenney_mono_16
+      top: 0
+      left: 256
+      width: 16
+      holeydma: false
+      palette: all
+      palette_number: 4
+      mode: 320A
+    - name: sprite_kenney_mono_17
+      top: 0
+      left: 272
+      width: 16
+      holeydma: false
+      palette: all
+      palette_number: 4
+      mode: 320A
+    - name: sprite_kenney_mono_19
+      top: 0
+      left: 304
+      width: 16
+      holeydma: false
+      palette: all
+      palette_number: 4
+      mode: 320A
+    - name: sprite_kenney_mono_38
+      top: 16
+      left: 288
+      width: 16
+      holeydma: false
+      palette: all
+      palette_number: 4
+      mode: 320A
+    - name: sprite_kenney_mono_39
+      top: 16
+      left: 304
+      width: 16
+      holeydma: false
+      palette: all
+      palette_number: 4
+      mode: 320A
+    - name: sprite_kenney_mono_64
+      top: 48
+      left: 64
+      width: 16
+      holeydma: false
+      palette: all
+      palette_number: 4
+      mode: 320A
+    - name: sprite_kenney_mono_65
+      top: 48
+      left: 80
+      width: 16
+      holeydma: false
+      palette: all
+      palette_number: 4
+      mode: 320A
+    - name: sprite_kenney_mono_66
+      top: 48
+      left: 96
+      width: 16
+      holeydma: false
+      palette: all
+      palette_number: 4
+      mode: 320A
+    - name: sprite_kenney_mono_81
+      top: 64
+      left: 16
+      width: 16
+      holeydma: false
+      palette: all
+      palette_number: 4
+      mode: 320A
+    - name: sprite_kenney_mono_88
+      top: 64
+      left: 128
+      width: 16
+      holeydma: false
+      palette: all
+      palette_number: 4
+      mode: 320A
+    - name: sprite_kenney_mono_121
+      top: 96
+      left: 16
+      width: 16
+      holeydma: false
+      palette: all
+      palette_number: 4
+      mode: 320A
+    - name: sprite_kenney_mono_188
+      top: 144
+      left: 128
+      width: 16
+      holeydma: false
+      palette: all
+      palette_number: 4
+      mode: 320A
+    - name: sprite_kenney_mono_207
+      top: 160
+      left: 112
+      width: 16
+      holeydma: false
+      palette: all
+      palette_number: 4
+      mode: 320A
+    - name: sprite_kenney_mono_208
+      top: 160
+      left: 128
+      width: 16
+      holeydma: false
+      palette: all
+      palette_number: 4
+      mode: 320A
+    - name: sprite_kenney_mono_209
+      top: 160
+      left: 144
+      width: 16
+      holeydma: false
+      palette: all
+      palette_number: 4
+      mode: 320A

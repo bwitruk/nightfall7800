@@ -66,11 +66,9 @@ const char nightfall_tiles_data_ptrs_low[42] = {nightfall_tiles_0_data & 0xff, n
 
 const char *nightfall_tiles_data_ptrs[2] = {nightfall_tiles_data_ptrs_high, nightfall_tiles_data_ptrs_low};
 
-/*
 #define TILING_HEIGHT 42
 #define TILING_WIDTH 60
 #include "sparse_tiling.h"
-*/
 
 reversed scattered(16,2) char sprite_kenney_mono_9[32] = {
 	0x7f, 0xfe, 0xff, 0xff, 0xc0, 0x03, 0xdf, 0xfb, 0xd7, 0xeb, 0xdf, 0xfb, 0xdf, 0xfb, 0xdf, 0xfb,
