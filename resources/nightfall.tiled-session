@@ -96,11 +96,11 @@
             }
         },
         "nightfall.tmx": {
-            "scale": 1.5,
-            "selectedLayer": 1,
+            "scale": 1,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 449.33333333333337,
-                "y": 488.3333333333333
+                "x": 485,
+                "y": 283.5
             }
         },
         "nightfall.tsj": {
@@ -153,12 +153,12 @@
     "project": "nightfall.tiled-project",
     "property.type": "string",
     "recentFiles": [
+        "nightfall.tmx",
         "nightfall_test.tmx",
         "nightfall-test.tmx",
         "nightfall2.tsj",
         "nightfall.tmj",
         "nightfall..tmj",
-        "nightfall.tmx",
         "nightfall.tsx",
         "nightfall2.tsx",
         "D:/bwitruk/GameDev/Atari7800/Projects/tools7800/tiles7800/resources/bombjack_parthenon.tmx",

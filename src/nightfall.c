@@ -18,14 +18,14 @@ ramchip char previous_joystick[2];
 #define BACKGROUND_FLIP 60 //~1 second
 
 ramchip int clock_ticker;
-ramchip int x, y;
+ramchip int tile_x, tile_y;
 ramchip char background;
 ramchip char background_ticker;
 ramchip char background_increment;
 ramchip char is_day;
 
 ramchip char character_x, character_y;
-ramchip signed char character_x_velocity, character_y_velocity;
+ramchip char character_x_velocity, character_y_velocity;
 const char character_movement_speed = 1;
 const char character_frame_durations[] = { 20, 10, 10 };
 const char character_frame_counts[] = { 4, 5, 5 };
@@ -157,6 +157,19 @@ void change_character_state(char state_index) {
 	character_gfx = character_animations[frame_no];
 }
 
+void character_x_changed() {
+	//TODO Pause character activity during transition
+	//TODO define constants
+	if (character_x == 127 && tile_x < 320) {
+		tile_x += 160;
+		character_x = 0;
+	}
+	else if (character_x == 0 && tile_x > 0) {
+		tile_x -= 160;
+		character_x = 126;
+	}
+}
+
 void character_update() {
 	if (character_ticker == character_frame_durations[character_state_index]) {
 		character_frame_index++;
@@ -170,14 +183,18 @@ void character_update() {
 		character_gfx = character_animations[frame_no];
 	}
 
-	//character_gfx = character_animations[6];
-
 	//x, y, gfx, width, palette, height, mode
 	multisprite_display_big_sprite(character_x, character_y, character_gfx, 8, 4, 4, 1);
 
 	character_ticker++;
 
+	char previous_character_x = character_x;
+
 	character_x += character_x_velocity;
+
+	if (previous_character_x != character_x) {
+		character_x_changed();
+	}
 }
 
 void character_init() {
@@ -194,8 +211,10 @@ void character_init() {
 }
 
 void main() {
-    x = 160; y = 448;
-    // x = 320; y = 0;
+    tile_x = 160; 
+	tile_y = 448;
+    // tile_x = 320;
+	// tile_y = 0;
 	
 	clock_ticker = 0;
 
@@ -206,7 +225,7 @@ void main() {
     sparse_tiling_init(nightfall_tiles_data_ptrs);
     joystick_init();
     
-    sparse_tiling_goto(x, y);
+    sparse_tiling_goto(tile_x, tile_y);
 
     *P0C2 = multisprite_color(0xbc); // Light turquoie
     *P1C2 = multisprite_color(0x33); // Red
@@ -228,8 +247,8 @@ void main() {
         joystick_update();
 
 		//Process Input
-        // if (joystick[0] & JOYSTICK_LEFT) x--; 
-        // else if (joystick[0] & JOYSTICK_RIGHT) x++;
+        // if (joystick[0] & JOYSTICK_LEFT) tile_x--; 
+        // else if (joystick[0] & JOYSTICK_RIGHT) tile_x++;
         // if (joystick[0] & JOYSTICK_UP) y--; 
         // else if (joystick[0] & JOYSTICK_DOWN) y++;
 		
@@ -247,7 +266,7 @@ void main() {
 		}
 
 		//Background
-		sparse_tiling_goto(x, y);
+		sparse_tiling_goto(tile_x, tile_y);
 
 		//Character
 		character_update();
