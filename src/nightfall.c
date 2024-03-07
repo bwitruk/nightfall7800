@@ -170,6 +170,7 @@ void character_update() {
 		character_gfx = character_animations[frame_no];
 	}
 
+	//Frame 6 has a glitch for some reason
 	//character_gfx = character_animations[6];
 
 	//x, y, gfx, width, palette, height, mode
@@ -202,7 +203,7 @@ void main() {
 	character_init();
 
     multisprite_init();
-    multisprite_set_charbase(sprite_kenney_mono_14);
+    multisprite_set_charbase(sprite_kenney_mono_9);
     sparse_tiling_init(nightfall_tiles_data_ptrs);
     joystick_init();
     

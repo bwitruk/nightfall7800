@@ -24,6 +24,14 @@ palettes:
 sprite_sheets:
 - image: monochrome_tilemap_transparent_packed.png
   sprites:
+  - name: sprite_kenney_mono_9
+    top: 0
+    left: 144
+    width: 16
+    holeydma: false
+    palette: all
+    palette_number: 4
+    mode: 320A
   - name: sprite_kenney_mono_14
     top: 0
     left: 224
