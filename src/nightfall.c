@@ -15,6 +15,8 @@ ramchip char previous_joystick[2];
 //#define LADDER_2_1_LEFT 48
 //in Tiled its 48px but seems like 20 in game
 #define LADDER_0_2_LEFT 20
+#define LADDER_TOP 140
+#define LADDER_BOTTOM 8
 
 #define DAY_START_TIME 0
 #define DUSK_START_TIME 300 //~5 seconds
@@ -34,6 +36,7 @@ ramchip char is_day;
 #define CHARACTER_HEIGHT 64
 #define CHARACTER_WIDTH 32
 #define CHARACTER_WIDTH_HALF (CHARACTER_WIDTH / 2)
+#define CHARACTER_Y_PLATFORM 148
 ramchip char character_x, character_y;
 ramchip char character_x_velocity, character_y_velocity;
 const char character_movement_speed = 1;
@@ -61,6 +64,7 @@ char *character_gfx;
 //Character Flags
 #define CHARACTER_FACE_RIGHT 1
 #define CHARACTER_CAN_CLIMB 2
+#define CHARACTER_CAN_EXIT_CLIMB 4
 
 ramchip char prev_character_state;
 ramchip char character_state;
@@ -187,6 +191,7 @@ void clock_step()
 // 		//Unhandled State
 // 	}
 // }
+
 void character_reset_animation()
 {
 	//Reset Animations
@@ -201,6 +206,22 @@ void character_state_changed()
 {
 	prev_character_state = character_state;
 
+	//Exit State
+	if (prev_character_state == CHARACTER_STATE_IDLE)
+	{
+
+	}
+	else if (prev_character_state == CHARACTER_STATE_WALK) 
+	{
+
+	}
+	else if (prev_character_state == CHARACTER_STATE_CLIMB) 
+	{
+		//TODO snap character to ground
+		character_y = CHARACTER_Y_PLATFORM;
+	}	
+
+	//Enter State
 	if (character_state == CHARACTER_STATE_IDLE)
 	{
 		character_frames = character_idles;
@@ -216,7 +237,9 @@ void character_state_changed()
 	{
 		character_frames = character_climbs;
 
-		//TODO snap player X to ladder X
+		//TODO properly snap player X to ladder X
+		//Save current ladder
+		character_x = LADDER_0_2_LEFT;
 	}
 
 	character_reset_animation();
@@ -233,6 +256,16 @@ void collison_check()
 	else
 	{
 		character_state_flags &= ~CHARACTER_CAN_CLIMB;
+	}
+
+	if (character_y >= LADDER_BOTTOM
+			&& character_y <= LADDER_TOP) 
+	{
+		character_state_flags |= CHARACTER_CAN_EXIT_CLIMB;
+	}
+	else
+	{
+		character_state_flags &= ~CHARACTER_CAN_EXIT_CLIMB;
 	}
 }
 
@@ -264,7 +297,7 @@ void character_y_changed()
 	else if (character_y == 0 && tile_y > 0) 
 	{
 		tile_y -= 224;
-		character_y = 148;
+		character_y = CHARACTER_Y_PLATFORM;
 	}
 }
 
@@ -318,7 +351,6 @@ void character_state_update()
 		else if (joystick[0] & (JOYSTICK_UP | JOYSTICK_DOWN)
 					&& character_state_flags & CHARACTER_CAN_CLIMB)
 		{
-			*BACKGRND = 0x33;
 			character_state = CHARACTER_STATE_CLIMB;
 		}
 	}
@@ -370,8 +402,6 @@ void character_state_update()
 		{
 			character_y_velocity = 0;
 		}
-
-		//TODO if climbing and can exit ladder
 	}
 
 	character_update_movement();
@@ -388,9 +418,9 @@ void character_init()
 	character_state = CHARACTER_STATE_IDLE;
 	character_state_changed();
 	// character_x = 100;
-	// character_y = 148;
+	// character_y = CHARACTER_Y_PLATFORM;
 	character_x = 100;
-	character_y = 148;
+	character_y = CHARACTER_Y_PLATFORM;
 	character_x_velocity = 0;
 	character_y_velocity = 0;
 	character_state_flags = CHARACTER_FACE_RIGHT & ~CHARACTER_CAN_CLIMB;
