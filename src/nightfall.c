@@ -56,10 +56,16 @@ char character_frame_index;
 char *character_frames;
 char *character_gfx;
 
+//Game States
+#define GAMESTATE_INTRO 0
+#define GAMESTATE_PLAY 1
+#define GAMESTATE_PAUSE 2
+#define GAMESTATE_GAMEOVER 3
+
 //Character States
 #define CHARACTER_STATE_IDLE 0
 #define CHARACTER_STATE_WALK 1
-#define CHARACTER_STATE_CLIMB 3
+#define CHARACTER_STATE_CLIMB 2
 
 //Character Flags
 #define CHARACTER_FACE_RIGHT 1
