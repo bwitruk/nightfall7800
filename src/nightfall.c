@@ -1,14 +1,26 @@
 #include "stdlib.h"
-#include "string.h"
 #include "prosystem.h"
 #include "joystick.h"
+#include "string.h"
+#include "armyfont.h"
 
 #define MODE_320AC
 
-ramchip char previous_joystick[2];
-
 #include "nightfall_tiles.c"
 #include "nightfall_characters.c"
+
+ramchip char previous_joystick[2];
+const screencode char title_txt[] = "NIGHTFALL";
+
+//Game States
+#define GAMESTATE_NONE 0
+#define GAMESTATE_INTRO 1
+#define GAMESTATE_PLAY 2
+#define GAMESTATE_PAUSE 3
+#define GAMESTATE_GAMEOVER 4
+
+ramchip char prev_gamestate;
+ramchip char gamestate;
 
 #define LADDER_WIDTH 16
 //#define LADDER_0_1_LEFT 48
@@ -56,12 +68,6 @@ char character_frame_index;
 char *character_frames;
 char *character_gfx;
 
-//Game States
-#define GAMESTATE_INTRO 0
-#define GAMESTATE_PLAY 1
-#define GAMESTATE_PAUSE 2
-#define GAMESTATE_GAMEOVER 3
-
 //Character States
 #define CHARACTER_STATE_IDLE 0
 #define CHARACTER_STATE_WALK 1
@@ -77,10 +83,10 @@ ramchip char character_state;
 ramchip unsigned char character_state_flags;
 
 //Triggers
-#define TRIGGER_PRESS_UP 0
-#define TRIGGER_PRESS_DOWN 1
-#define TRIGGER_PRESS_LEFT 2
-#define TRIGGER_PRESS_RIGHT 3
+// #define TRIGGER_PRESS_UP 0
+// #define TRIGGER_PRESS_DOWN 1
+// #define TRIGGER_PRESS_LEFT 2
+// #define TRIGGER_PRESS_RIGHT 3
 
 void on_day_start() {
 	//Set background to day
@@ -210,8 +216,6 @@ void character_reset_animation()
 
 void character_state_changed() 
 {
-	prev_character_state = character_state;
-
 	//Exit State
 	if (prev_character_state == CHARACTER_STATE_IDLE)
 	{
@@ -249,6 +253,8 @@ void character_state_changed()
 	}
 
 	character_reset_animation();
+
+	prev_character_state = character_state;
 }
 
 void collison_check() 
@@ -423,8 +429,6 @@ void character_init()
 {
 	character_state = CHARACTER_STATE_IDLE;
 	character_state_changed();
-	// character_x = 100;
-	// character_y = CHARACTER_Y_PLATFORM;
 	character_x = 100;
 	character_y = CHARACTER_Y_PLATFORM;
 	character_x_velocity = 0;
@@ -434,57 +438,149 @@ void character_init()
 
 void main() 
 {
-    // tile_x = 160; 
-	// tile_y = 448;
-    tile_x = 0;
-	tile_y = 448;
-	
-	clock_ticker = 0;
+	prev_gamestate = GAMESTATE_NONE;
+	gamestate = GAMESTATE_INTRO;
 
-	character_init();
+	joystick_init();
 
-    multisprite_init();
-    multisprite_set_charbase(sprite_kenney_mono_14);
-    sparse_tiling_init(nightfall_tiles_data_ptrs);
-    joystick_init();
-    
-    sparse_tiling_goto(tile_x, tile_y);
-
-    *P0C2 = multisprite_color(0xbc); // Light turquoie
-    *P1C2 = multisprite_color(0x33); // Red
-    *P2C2 = multisprite_color(0xa5); // Dark turquoise
-    *P3C2 = multisprite_color(0x83); // Blue
-    *P4C2 = 0x0f; // White
-    *P5C2 = 0x00; // Black
-    *P6C2 = multisprite_color(0x29); // Orange 
-    *P7C2 = multisprite_color(0x3c); // Rose 
-
-    // Main loop
-    do 
+	// Main loop
+    do
 	{
-		clock_step();
-
-        multisprite_flip();
-
 		previous_joystick[0] = joystick[0];
 		previous_joystick[1] = joystick[1];
-        joystick_update();
+		joystick_update();
 
-		//Process Input
-        // if (joystick[0] & JOYSTICK_LEFT) tile_x--; 
-        // else if (joystick[0] & JOYSTICK_RIGHT) tile_x++;
-        // if (joystick[0] & JOYSTICK_UP) y--; 
-        // else if (joystick[0] & JOYSTICK_DOWN) y++;
+		if (gamestate == GAMESTATE_PLAY)
+		{
+			clock_step();
 
-		//Background
-		sparse_tiling_goto(tile_x, tile_y);
+			multisprite_flip();
 
-		//Character Update
-		character_state_update();
+			//Process Input
+			// if (joystick[0] & JOYSTICK_LEFT) tile_x--; 
+			// else if (joystick[0] & JOYSTICK_RIGHT) tile_x++;
+			// if (joystick[0] & JOYSTICK_UP) y--; 
+			// else if (joystick[0] & JOYSTICK_DOWN) y++;
 
-		//Draw Character
-		//x, y, gfx, width, palette, height, mode
-		multisprite_display_big_sprite(character_x, character_y, character_gfx, 8, 4, 4, 1);
+			//Background
+			sparse_tiling_goto(tile_x, tile_y);
+
+			//Character Update
+			character_state_update();
+
+			//Draw Character
+			//x, y, gfx, width, palette, height, mode
+			multisprite_display_big_sprite(character_x, character_y, character_gfx, 8, 4, 4, 1);
+		}
+		else if (gamestate == GAMESTATE_INTRO && prev_gamestate != GAMESTATE_NONE)
+		{
+			//Show intro
+			//Shown in enter state
+			//multisprite_restore();
+			multisprite_flip();
+
+			//If any button pressed enter play
+			if (joystick[0] & (JOYSTICK_BUTTON1 | JOYSTICK_BUTTON2))
+			{
+				gamestate = GAMESTATE_PLAY;
+			}
+		}
+		else if (gamestate == GAMESTATE_PAUSE)
+		{
+
+		}
+		else if (gamestate == GAMESTATE_GAMEOVER)
+		{
+
+		}
+
+		//Gamestate changed
+		if (gamestate != prev_gamestate)
+		{
+			//Exit State
+			if (prev_gamestate == GAMESTATE_INTRO)
+			{
+
+			}
+			else if (prev_gamestate == GAMESTATE_PLAY)
+			{
+
+			}
+			else if (prev_gamestate == GAMESTATE_PAUSE)
+			{
+
+			}
+			else if (prev_gamestate == GAMESTATE_GAMEOVER)
+			{
+
+			}
+
+			//Enter State
+			if (gamestate == GAMESTATE_INTRO)
+			{
+				//TODO correct spot??
+				//Display init?
+				*P0C2 = multisprite_color(0xbc); // Light turquoie
+				*P1C2 = multisprite_color(0x33); // Red
+				*P2C2 = multisprite_color(0xa5); // Dark turquoise
+				*P3C2 = multisprite_color(0x83); // Blue
+				*P4C2 = 0x0f; // White
+				*P5C2 = 0x00; // Black
+				*P6C2 = multisprite_color(0x29); // Orange 
+				*P7C2 = multisprite_color(0x3c); // Rose 
+
+				multisprite_init();
+				// multisprite_set_charbase(sprite_kenney_mono_14);
+				multisprite_set_charbase(font);
+				sparse_tiling_init(nightfall_tiles_data_ptrs);
+
+				multisprite_display_tiles(0, 0, title_txt, 10, 4);
+
+				//TODO freeze screen needed??
+				multisprite_save();
+			}
+			else if (gamestate == GAMESTATE_PLAY)
+			{
+				//
+				// Initialize
+				// 
+				// tile_x = 160; 
+				// tile_y = 448;
+				tile_x = 0;
+				tile_y = 448;
+
+				clock_ticker = 0;
+
+				character_init();
+
+				//Moved to intro init
+				// *P0C2 = multisprite_color(0xbc); // Light turquoie
+				// *P1C2 = multisprite_color(0x33); // Red
+				// *P2C2 = multisprite_color(0xa5); // Dark turquoise
+				// *P3C2 = multisprite_color(0x83); // Blue
+				// *P4C2 = 0x0f; // White
+				// *P5C2 = 0x00; // Black
+				// *P6C2 = multisprite_color(0x29); // Orange 
+				// *P7C2 = multisprite_color(0x3c); // Rose 
+				// multisprite_init();
+				// multisprite_set_charbase(sprite_kenney_mono_14);
+				// sparse_tiling_init(nightfall_tiles_data_ptrs);
+				//Moved to main init
+				//joystick_init();
+
+				//sparse_tiling_goto(tile_x, tile_y);
+			}
+			else if (gamestate == GAMESTATE_PAUSE)
+			{
+
+			}
+			else if (gamestate == GAMESTATE_GAMEOVER)
+			{
+
+			}
+
+			prev_gamestate = gamestate;
+		}
 
     } while(1);
 }

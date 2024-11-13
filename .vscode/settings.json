@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "string.h": "c",
-        "sparse_tiling.h": "c"
+        "sparse_tiling.h": "c",
+        "armyfont.h": "c",
+        "multisprite.h": "c"
     }
 }
